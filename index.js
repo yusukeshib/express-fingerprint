@@ -9,6 +9,7 @@
 var hash = require('murmurhash3js')[process.arch]
 var async = require('async')
 var parameters = require('./parameters')
+var traverse = require('traverse')
 
 //
 exports = module.exports = Fingerprint
@@ -21,22 +22,27 @@ function Fingerprint(config) {
 		parameters:defaultConfig.parameters.concat(config.parameters)
 	}
 	return function(req,res,next) {
-		var components = []
+		var components = {}
 		config.req = req
 		var fingerprint = {
 			hash:null
 		}
 		async.eachLimit(config.parameters,1,function(parameter,callback) {
-			parameter.bind(config)(function() {
-				var err = arguments[0]
-				Array.apply(null,arguments).slice(1).forEach(function(comps) {
-					components = components.concat(comps)
+			parameter.bind(config)(function(err,obj) {
+				Object.keys(obj).forEach(function(key) {
+					components[key] = obj[key]
 				})
 				callback(err)
 			})
 		},function(err) {
 			if(!err) {
-				fingerprint.hash = hash.hash128(components.join("~~~"))
+				var leaves = traverse(components).reduce(function(acc, x) {
+					if (this.isLeaf) {
+						acc.push(x);
+					}
+					return acc;
+				}, []);
+				fingerprint.hash = hash.hash128(leaves.join("~~~"))
 				fingerprint.components = components // debug
 				req.fingerprint = fingerprint
 			}

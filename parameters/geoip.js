@@ -6,8 +6,12 @@ module.exports = function(next)  {
 	var geo = geoip.lookup(ip)
 	next(
 		null,
-		geo ? geo.country : null,
-		geo ? geo.region : null,
-		geo ? geo.city : null
+		{
+			geo: {
+				country: geo ? geo.country : null,
+				resion: geo ? geo.region : null,
+				city: geo ? geo.city : null
+			}
+		}
 	)
 }

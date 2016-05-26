@@ -7,13 +7,16 @@ var app = express()
 app.use(Fingerprint({
 	parameters:[
 		function(next) {
-			next(null,['test1','test2'])
+			next(null,{
+				param1:'value1',
+				param2:'value2'
+			})
 		},
 		function(next) {
-			next(null,'test3','test4')
-		},
-		function(next) {
-			next()
+			next(null,{
+				param3:'value3',
+				param4:'value4'
+			})
 		}
 	]
 }))

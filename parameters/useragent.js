@@ -6,16 +6,30 @@ module.exports = function(next) {
 	var ua = parser.getResult()
 	next(
 		null,
-		ua.browser.name,
-		ua.browser.major,
-		ua.device.model,
-		ua.device.vendor,
-		ua.device.type,
-		ua.os.name,
-		ua.os.version,
-		ua.engine.name,
-		ua.engine.version,
-		ua.cpu.architecture
+		{
+			ua: {
+				browser:{
+					name:ua.browser.name,
+					major:ua.browser.major
+				},
+				device:{
+					model:ua.device.model,
+					vendor:ua.device.vendor,
+					type:ua.device.type
+				},
+				os: {
+					name:ua.os.name,
+					version:ua.os.version
+				},
+				engine:{
+					name:ua.engine.name,
+					version:ua.engine.version
+				},
+				cpu: {
+					architecture:ua.cpu.architecture
+				}
+			}
+		}
 	)
 }
 
