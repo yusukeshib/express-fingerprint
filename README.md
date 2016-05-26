@@ -30,6 +30,12 @@ app.use(Supercookie({
 		},
 	]
 }))
+
+app.get('*',function(req,res,next) {
+	// Supercookie object
+	// { hash:"1bd360626197ba49ff9db0f8bb29c3e7" }
+	console.log(req.supercookie)
+})
 ```
 
 ### List of fingerprinting sources
