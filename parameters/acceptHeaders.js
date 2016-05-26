@@ -1,8 +1,8 @@
 module.exports = function(next) {
-	var components = [
+	next(
+		null,
 		this.req.headers['accept'],
 		this.req.headers['accept-encoding'],
 		this.req.headers['accept-language']
-	]
-	next(null,components)
+	)
 }

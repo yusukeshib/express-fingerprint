@@ -4,7 +4,8 @@ module.exports = function(next) {
 	var parser = new UseragentParser()
 	parser.setUA(this.req.headers['user-agent'])
 	var ua = parser.getResult()
-	var components = [
+	next(
+		null,
 		ua.browser.name,
 		ua.browser.major,
 		ua.device.model,
@@ -15,7 +16,6 @@ module.exports = function(next) {
 		ua.engine.name,
 		ua.engine.version,
 		ua.cpu.architecture
-	]
-	next(null,components)
+	)
 }
 
