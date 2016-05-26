@@ -7,7 +7,6 @@
 'use strict'
 
 var hash = require('murmurhash3js')[process.arch]
-var _ = require('lodash')
 var async = require('async')
 var parameters = require('./parameters')
 
