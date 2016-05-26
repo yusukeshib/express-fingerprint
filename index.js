@@ -18,7 +18,9 @@ var defaultConfig = {
 	parameters:parameters,
 }
 function Fingerprint(config) {
-	var config = _.merge(defaultConfig,config)
+	var config = {
+		parameters:defaultConfig.parameters.concat(config.parameters)
+	}
 	return function(req,res,next) {
 		var components = []
 		config.req = req
@@ -26,8 +28,11 @@ function Fingerprint(config) {
 			hash:null
 		}
 		async.eachLimit(config.parameters,1,function(parameter,callback) {
-			parameter.bind(config)(function(err,comps) {
-				components = components.concat(comps)
+			parameter.bind(config)(function() {
+				var err = arguments[0]
+				Array.apply(null,arguments).slice(1).forEach(function(comps) {
+					components = components.concat(comps)
+				})
 				callback(err)
 			})
 		},function(err) {
