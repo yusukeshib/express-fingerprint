@@ -22,19 +22,29 @@ app.use(Fingerprint({
 	paramters:[
 		function(next) {
 			// ...do something...
-			next(null,['param1','param2'])
+			next(null,{
+			'param1':'value1'
+			})
 		},
 		function(next) {
 			// ...do something...
-			next(null,'param3','param4')
+			next(null,{
+			'param2':'value2'
+			})
 		},
 	]
 }))
 
 app.get('*',function(req,res,next) {
 	// Fingerprint object
-	// { hash:"1bd360626197ba49ff9db0f8bb29c3e7" }
 	console.log(req.fingerprint)
+	// {
+	// 		hash:"1bd360626197ba49ff9db0f8bb29c3e7",
+	// 		components:{
+	// 			param1:"value1",
+	// 			param2:"value2"
+	// 		}
+	// }
 })
 ```
 
