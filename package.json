@@ -1,6 +1,6 @@
 {
   "name": "express-fingerprint",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Client fingerprint server implementation.",
   "main": "index.js",
   "scripts": {

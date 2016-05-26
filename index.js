@@ -18,7 +18,10 @@ var defaultConfig = {
 	parameters:parameters,
 }
 function Fingerprint(config) {
-	var config = {
+	if(!config) config = {
+		parameters:[]
+	}
+	config = {
 		parameters:defaultConfig.parameters.concat(config.parameters)
 	}
 	return function(req,res,next) {
