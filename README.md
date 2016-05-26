@@ -1,4 +1,4 @@
-# Supercookie express middleware
+# Fingerprint express middleware
 
 Default implementation is `Never trust clients`, So collect only server-side information.  
 But you can push additional parameter with initialization config.  
@@ -8,16 +8,16 @@ http://programmers.stackexchange.com/questions/122372/is-browser-fingerprinting-
 ### Installation
 
 ```
-npm install express-supercookie
+npm install express-fingerprint
 ```
 ### Usage
 
 #### As a Express middleware
 
 ```javascript
-var Supercookie = require('express-supercookie')
+var Fingerprint = require('express-fingerprint')
 
-app.use(Supercookie({
+app.use(Fingerprint({
 	// Additional parameters
 	paramters:[
 		function(next) {
@@ -32,9 +32,9 @@ app.use(Supercookie({
 }))
 
 app.get('*',function(req,res,next) {
-	// Supercookie object
+	// Fingerprint object
 	// { hash:"1bd360626197ba49ff9db0f8bb29c3e7" }
-	console.log(req.supercookie)
+	console.log(req.fingerprint)
 })
 ```
 

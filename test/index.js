@@ -1,10 +1,10 @@
 var express = require('express')
-var Supercookie = require('..')
+var Fingerprint = require('..')
 
 var app = express()
 
 //
-app.use(Supercookie({
+app.use(Fingerprint({
 	parameters:[
 		function(next) {
 			next(null,['test1','test2'])
@@ -25,6 +25,6 @@ var server = app.listen(app.get('port'), function() {
 })
 app.get('*',function(req,res) {
 	res.json({
-		supercookie:req.supercookie
+		fingerprint:req.fingerprint
 	})
 })

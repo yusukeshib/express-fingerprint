@@ -1,5 +1,5 @@
 {
-  "name": "express-supercookie",
+  "name": "express-fingerprint",
   "version": "1.0.2",
   "description": "Client fingerprint server implementation.",
   "main": "index.js",
@@ -8,11 +8,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yusukeshibata/express-supercookie.git"
+    "url": "git+https://github.com/yusukeshibata/express-fingerprint.git"
   },
   "keywords": [
     "express",
-    "supercookie",
+    "fingerprint",
     "server-side",
     "fingerprint",
     "device",
@@ -22,9 +22,9 @@
   "author": "Yusuke Shibata <shibata@fata.io>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yusukeshibata/express-supercookie/issues"
+    "url": "https://github.com/yusukeshibata/express-fingerprint/issues"
   },
-  "homepage": "https://github.com/yusukeshibata/express-supercookie#readme",
+  "homepage": "https://github.com/yusukeshibata/express-fingerprint#readme",
   "dependencies": {
     "async": "^1.5.2",
     "geoip-lite": "^1.1.8",

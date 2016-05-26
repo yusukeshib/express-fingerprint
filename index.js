@@ -1,5 +1,5 @@
 /*!
- * express-supercookie
+ * express-fingerprint
  * Copyright(c) 2016 Yusuke Shibata
  * MIT Licensed
  */
@@ -11,19 +11,19 @@ var async = require('async')
 var parameters = require('./parameters')
 
 //
-exports = module.exports = Supercookie
+exports = module.exports = Fingerprint
 
 var defaultConfig = {
 	parameters:parameters,
 }
-function Supercookie(config) {
+function Fingerprint(config) {
 	var config = {
 		parameters:defaultConfig.parameters.concat(config.parameters)
 	}
 	return function(req,res,next) {
 		var components = []
 		config.req = req
-		var supercookie = {
+		var fingerprint = {
 			hash:null
 		}
 		async.eachLimit(config.parameters,1,function(parameter,callback) {
@@ -36,9 +36,9 @@ function Supercookie(config) {
 			})
 		},function(err) {
 			if(!err) {
-				supercookie.hash = hash.hash128(components.join("~~~"))
-				supercookie.components = components // debug
-				req.supercookie = supercookie
+				fingerprint.hash = hash.hash128(components.join("~~~"))
+				fingerprint.components = components // debug
+				req.fingerprint = fingerprint
 			}
 			next()
 		})
