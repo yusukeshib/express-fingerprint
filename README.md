@@ -8,14 +8,14 @@ http://programmers.stackexchange.com/questions/122372/is-browser-fingerprinting-
 ### Installation
 
 ```
-npm install supercookie
+npm install express-supercookie
 ```
 ### Usage
 
 #### As a Express middleware
 
 ```javascript
-var Supercookie = require('supercookie')
+var Supercookie = require('express-supercookie')
 
 app.use(Supercookie({
 	// Additional parameters
