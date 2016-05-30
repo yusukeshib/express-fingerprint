@@ -38,15 +38,46 @@ app.use(Fingerprint({
 app.get('*',function(req,res,next) {
 	// Fingerprint object
 	console.log(req.fingerprint)
-	// {
-	// 		hash:"1bd360626197ba49ff9db0f8bb29c3e7",
-	// 		components:{
-	// 			param1:"value1",
-	// 			param2:"value2"
-	// 		}
-	// }
 })
 ```
+
+req.fingerprint object is like below.
+```javascript
+{
+	"hash": "bd767932c289b92b4de510f4c4d48246",
+	"components": {
+		"ua": {
+			"browser": {
+				"name": "Chrome",
+				"major": "50"
+			},
+			"device": {},
+			"os": {
+				"name": "Mac OS",
+				"version": "10.11.4"
+			},
+			"engine": {
+				"name": "WebKit",
+				"version": "537.36"
+			},
+			"cpu": {}
+		},
+		"accept": {
+			"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+			"encoding": "gzip, deflate, sdch",
+			"language": "en-US,en;q=0.8"
+		},
+		"geo": {
+			"country": "US",
+			"resion": "CA",
+			"city": "San Francisco"
+		},
+		"param1": "value1",
+		"param2": "value2"
+	}
+}
+```
+
 
 ### List of fingerprinting sources
 

@@ -1,0 +1,35 @@
+{
+	"hash": "bd767932c289b92b4de510f4c4d48246",
+	"components": {
+		"ua": {
+			"browser": {
+				"name": "Chrome",
+				"major": "50"
+			},
+			"device": {},
+			"os": {
+				"name": "Mac OS",
+				"version": "10.11.4"
+			},
+			"engine": {
+				"name": "WebKit",
+				"version": "537.36"
+			},
+			"cpu": {}
+		},
+		"accept": {
+			"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+			"encoding": "gzip, deflate, sdch",
+			"language": "en-US,en;q=0.8"
+		},
+		"geo": {
+			"country": null,
+			"resion": null,
+			"city": null
+		},
+		"param1": "value1",
+		"param2": "value2",
+		"param3": "value3",
+		"param4": "value4"
+	}
+}
