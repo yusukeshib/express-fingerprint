@@ -1,9 +1,14 @@
 # Fingerprint express middleware
 
+https://w3c.github.io/fingerprinting-guidance/#bib-NDSS-FINGERPRINTING
+> Passive fingerprinting is browser fingerprinting based on characteristics observable in the contents of Web requests, without the use of any code executing on the client side.
+
 Default implementation is `Never trust clients`, So collect only server-side information.  
 But you can push additional parameter with initialization config.  
 
-http://programmers.stackexchange.com/questions/122372/is-browser-fingerprinting-a-viable-technique-for-identifying-anonymous-users
+### TODO
+Implement this:
+http://research.microsoft.com/pubs/156901/ndss2012.pdf
 
 ### Installation
 
