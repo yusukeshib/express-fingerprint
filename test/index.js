@@ -6,6 +6,9 @@ var app = express()
 //
 app.use(Fingerprint({
 	parameters:[
+		Fingerprint.useragent,
+		Fingerprint.acceptHeaders,
+		Fingerprint.geoip,
 		function(next) {
 			next(null,{
 				param1:'value1',

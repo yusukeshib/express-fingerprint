@@ -13,16 +13,20 @@ var traverse = require('traverse')
 
 //
 exports = module.exports = Fingerprint
+Object.keys(parameters).forEach(function(key) {
+	Fingerprint[key] = parameters[key]
+})
 
-var defaultConfig = {
-	parameters:parameters,
-}
 function Fingerprint(config) {
-	if(!config) config = {
-		parameters:[]
+	if(!config) {
+		config = {}
 	}
-	config = {
-		parameters:defaultConfig.parameters.concat(config.parameters)
+	if(!config.parameters) {
+		config.parameters = [
+			Fingerprint.useragent,
+			Fingerprint.acceptHeaders,
+			Fingerprint.geoip
+		]
 	}
 	return function(req,res,next) {
 		var components = {}
