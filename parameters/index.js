@@ -1,5 +1,5 @@
-module.exports = [
-	require('./useragent'),
-	require('./acceptHeaders'),
-	require('./geoip')
-]
+module.exports = {
+	useragent:require('./useragent'),
+	acceptHeaders:require('./acceptHeaders'),
+	geoip:require('./geoip')
+}

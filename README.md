@@ -27,6 +27,9 @@ var Fingerprint = require('express-fingerprint')
 app.use(Fingerprint({
 	// Additional parameters
 	paramters:[
+		Fingerprint.useragent,
+		Fingerprint.acceptHeaders,
+		Fingerprint.geoip,
 		function(next) {
 			// ...do something...
 			next(null,{
@@ -53,7 +56,7 @@ req.fingerprint object is like below.
 {
 	"hash": "bd767932c289b92b4de510f4c4d48246",
 	"components": {
-		"ua": {
+		"useragent": {
 			"browser": {
 				"name": "Chrome",
 				"major": "50"
@@ -69,12 +72,12 @@ req.fingerprint object is like below.
 			},
 			"cpu": {}
 		},
-		"accept": {
+		"acceptHeaders": {
 			"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
 			"encoding": "gzip, deflate, sdch",
 			"language": "en-US,en;q=0.8"
 		},
-		"geo": {
+		"geoip": {
 			"country": "US",
 			"resion": "CA",
 			"city": "San Francisco"

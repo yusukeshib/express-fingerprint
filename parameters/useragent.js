@@ -7,7 +7,7 @@ module.exports = function(next) {
 	next(
 		null,
 		{
-			ua: {
+			useragent: {
 				browser:{
 					name:ua.browser.name,
 					major:ua.browser.major

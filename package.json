@@ -4,7 +4,7 @@
   "description": "Client fingerprint server implementation.",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon test"
+    "test": "node test/index.js"
   },
   "repository": {
     "type": "git",
@@ -34,7 +34,6 @@
     "ua-parser-js": "^0.7.10"
   },
   "devDependencies": {
-    "express": "^4.13.4",
-    "nodemon": "^1.9.2"
+    "express": "^4.13.4"
   }
 }
