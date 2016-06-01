@@ -25,11 +25,13 @@ npm install express-fingerprint
 var Fingerprint = require('express-fingerprint')
 
 app.use(Fingerprint({
-	// Additional parameters
 	paramters:[
+		// Defaults
 		Fingerprint.useragent,
 		Fingerprint.acceptHeaders,
 		Fingerprint.geoip,
+
+		// Additional parameters
 		function(next) {
 			// ...do something...
 			next(null,{
