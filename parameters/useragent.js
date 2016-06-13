@@ -1,32 +1,23 @@
-var UseragentParser = require('ua-parser-js')
+var useragent = require('useragent')
 
 module.exports = function(next) {
-	var parser = new UseragentParser()
-	parser.setUA(this.req.headers['user-agent'])
-	var ua = parser.getResult()
+	var agent = useragent.parse(this.req.headers['user-agent'])
 	next(
 		null,
 		{
 			useragent: {
 				browser:{
-					name:ua.browser.name,
-					major:ua.browser.major
+					family:agent.family,
+					version:agent.major
 				},
 				device:{
-					model:ua.device.model,
-					vendor:ua.device.vendor,
-					type:ua.device.type
+					family:agent.device.family,
+					version:agent.device.major
 				},
 				os: {
-					name:ua.os.name,
-					version:ua.os.version
-				},
-				engine:{
-					name:ua.engine.name,
-					version:ua.engine.version
-				},
-				cpu: {
-					architecture:ua.cpu.architecture
+					family:agent.os.family,
+					major:agent.os.major,
+					minor:agent.os.minor
 				}
 			}
 		}
