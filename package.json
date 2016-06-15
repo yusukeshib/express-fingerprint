@@ -1,6 +1,6 @@
 {
   "name": "express-fingerprint",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "Client fingerprint server implementation.",
   "main": "index.js",
   "scripts": {
@@ -31,7 +31,7 @@
     "ipaddr": "0.0.9",
     "murmurhash3js": "^3.0.1",
     "traverse": "^0.6.6",
-    "ua-parser-js": "^0.7.10"
+    "useragent": "^2.1.9"
   },
   "devDependencies": {
     "express": "^4.13.4"

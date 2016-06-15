@@ -25,11 +25,13 @@ npm install express-fingerprint
 var Fingerprint = require('express-fingerprint')
 
 app.use(Fingerprint({
-	// Additional parameters
 	paramters:[
+		// Defaults
 		Fingerprint.useragent,
 		Fingerprint.acceptHeaders,
 		Fingerprint.geoip,
+
+		// Additional parameters
 		function(next) {
 			// ...do something...
 			next(null,{
@@ -58,19 +60,17 @@ req.fingerprint object is like below.
 	"components": {
 		"useragent": {
 			"browser": {
-				"name": "Chrome",
-				"major": "50"
+				"family": "Chrome",
+				"version": "50"
 			},
-			"device": {},
+			"device": {
+				"family": "Other",
+				"version": "0"
+			},
 			"os": {
-				"name": "Mac OS",
-				"version": "10.11.4"
-			},
-			"engine": {
-				"name": "WebKit",
-				"version": "537.36"
-			},
-			"cpu": {}
+				"family": "Mac OS",
+				"major": "10",
+				"minor":"11"
 		},
 		"acceptHeaders": {
 			"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
