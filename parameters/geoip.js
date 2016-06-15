@@ -8,9 +8,7 @@ module.exports = function(next)  {
 		null,
 		{
 			geoip: {
-				country: geo ? geo.country : null,
-				resion: geo ? geo.region : null,
-				city: geo ? geo.city : null
+				country: geo ? geo.country : null
 			}
 		}
 	)
