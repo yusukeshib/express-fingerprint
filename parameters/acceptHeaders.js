@@ -4,7 +4,6 @@ module.exports = function(next) {
 		{
 			acceptHeaders:{
 				accept:this.req.headers['accept'],
-				encoding:this.req.headers['accept-encoding'],
 				language:this.req.headers['accept-language']
 			}
 		}
