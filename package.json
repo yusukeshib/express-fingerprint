@@ -1,6 +1,6 @@
 {
   "name": "express-fingerprint",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Client fingerprint server implementation.",
   "main": "index.js",
   "scripts": {
@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/yusukeshibata/express-fingerprint#readme",
   "dependencies": {
-    "async": "^1.5.2",
+    "async": "^2.1.4",
     "geoip-lite": "^1.1.8",
     "ipaddr": "0.0.9",
     "murmurhash3js": "^3.0.1",
@@ -34,6 +34,6 @@
     "useragent": "^2.1.9"
   },
   "devDependencies": {
-    "express": "^4.13.4"
+    "express": "^4.14.0"
   }
 }
