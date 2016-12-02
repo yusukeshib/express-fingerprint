@@ -1,6 +1,6 @@
 {
   "name": "express-fingerprint",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "Client fingerprint server implementation.",
   "main": "index.js",
   "scripts": {
@@ -28,7 +28,6 @@
   "dependencies": {
     "async": "^2.1.4",
     "geoip-lite": "^1.1.8",
-    "ipaddr": "0.0.9",
     "murmurhash3js": "^3.0.1",
     "traverse": "^0.6.6",
     "useragent": "^2.1.9"
