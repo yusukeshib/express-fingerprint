@@ -1,12 +1,12 @@
 # Fingerprint express middleware
 
 https://w3c.github.io/fingerprinting-guidance/#bib-NDSS-FINGERPRINTING
-> Passive fingerprinting is browser fingerprinting based on characteristics observable in the contents of Web requests, without the use of any code executing on the client side.  
+> Passive fingerprinting is browser fingerprinting based on characteristics observable in the contents of Web requests, without the use of any code executing on the client side.
 >
 > Passive fingerprinting would trivially include cookies (often unique identifiers sent in HTTP requests) and the set of HTTP request headers and the IP address and other network-level information. The User-Agent string, for example, is an HTTP request header that typically identifies the browser, renderer, version and operating system. For some populations, the user agent string and IP address will commonly uniquely identify a particular user's browser.
 
-Default implementation is `Never trust clients`, So collect only server-side information.  
-But you can push additional parameter with initialization config.  
+Default implementation is `Never trust clients`, So collect only server-side information.
+But you can push additional parameter with initialization config.
 
 ### TODO
 Implement this:
@@ -25,7 +25,7 @@ npm install express-fingerprint
 var Fingerprint = require('express-fingerprint')
 
 app.use(Fingerprint({
-	paramters:[
+	parameters:[
 		// Defaults
 		Fingerprint.useragent,
 		Fingerprint.acceptHeaders,
