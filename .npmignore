@@ -4,7 +4,6 @@
 src
 test
 .git
-.flowconfig
 .gitignore
 README.md
 webpack.config.js

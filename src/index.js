@@ -31,7 +31,7 @@ const Fingerprint = setting => {
       },
       err => {
         if(!err) {
-          let leaves = traverse(components).reduce((acc, x) => {
+          let leaves = traverse(components).reduce(function(acc, x) {
             if (this.isLeaf) acc.push(x)
             return acc
           }, [])

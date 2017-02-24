@@ -1,4 +1,4 @@
-module.exports = next => {
+module.exports = function(next) {
   next(null, {
     acceptHeaders:{
       accept:this.req.headers['accept'],

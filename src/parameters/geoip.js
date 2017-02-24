@@ -1,6 +1,6 @@
 import geoip from 'geoip-lite'
 
-module.exports = next => {
+module.exports = function(next) {
   const geo = geoip.lookup(this.req.ip)
   next(null, {
     geoip: {

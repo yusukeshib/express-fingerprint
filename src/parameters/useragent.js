@@ -1,6 +1,6 @@
 import useragent from 'useragent'
 
-module.exports = next => {
+module.exports = function(next) {
   const agent = useragent.parse(this.req.headers['user-agent'])
   next(null, {
     useragent: {

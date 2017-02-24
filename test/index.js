@@ -3,7 +3,6 @@ var Fingerprint = require('..')
 
 var app = express()
 
-//
 app.use(Fingerprint({
 	parameters:[
 		Fingerprint.useragent,
