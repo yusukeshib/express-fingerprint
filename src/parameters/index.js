@@ -1,5 +1,9 @@
+import useragent from './useragent'
+import acceptHeaders from './acceptHeaders'
+import geoip from './geoip'
+
 module.exports = {
-  useragent:require('./useragent'),
-  acceptHeaders:require('./acceptHeaders'),
-  geoip:require('./geoip')
+  useragent,
+  acceptHeaders,
+  geoip
 }

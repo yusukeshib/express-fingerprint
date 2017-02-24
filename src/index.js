@@ -1,52 +1,52 @@
-var hash = require('murmurhash3js')[process.arch]
-var async = require('async')
-var parameters = require('./parameters')
-var traverse = require('traverse')
+import murmurhash3js from 'murmurhash3js'
+import async from 'async'
+import parameters from './parameters'
+import traverse from 'traverse'
+const hash = murmurhash3js[process.arch]
 
-//
-exports = module.exports = Fingerprint
-Object.keys(parameters).forEach(function(key) {
-  Fingerprint[key] = parameters[key]
-})
-
-function Fingerprint(config) {
-  if(!config) {
-    config = {}
-  }
-  if(!config.parameters) {
-    config.parameters = [
+const Fingerprint = setting => {
+  const config = {
+    parameters: [
       Fingerprint.useragent,
       Fingerprint.acceptHeaders,
       Fingerprint.geoip
-    ]
+    ],
+    ...setting
   }
-  return function(req,res,next) {
-    var components = {}
+
+  return (req, res, next) => {
+    let components = {}
     config.req = req
-    var fingerprint = {
-      hash:null
-    }
-    async.eachLimit(config.parameters,1,function(parameter,callback) {
-      parameter.bind(config)(function(err,obj) {
-        Object.keys(obj).forEach(function(key) {
-          components[key] = obj[key]
+    let fingerprint = { hash: null }
+    async.eachLimit(
+      config.parameters,
+      1,
+      (parameter, callback) => {
+        parameter.bind(config)((err, obj) => {
+          Object.keys(obj).forEach(key => {
+            components[key] = obj[key]
+          })
+          callback(err)
         })
-        callback(err)
-      })
-    },function(err) {
-      if(!err) {
-        var leaves = traverse(components).reduce(function(acc, x) {
-          if (this.isLeaf) {
-            acc.push(x);
-          }
-          return acc;
-        }, []);
-        fingerprint.hash = hash.hash128(leaves.join("~~~"))
-        fingerprint.components = components // debug
-        req.fingerprint = fingerprint
+      },
+      err => {
+        if(!err) {
+          let leaves = traverse(components).reduce((acc, x) => {
+            if (this.isLeaf) acc.push(x)
+            return acc
+          }, [])
+          fingerprint.hash = hash.hash128(leaves.join('~~~'))
+          fingerprint.components = components // debug
+          req.fingerprint = fingerprint
+        }
+        next()
       }
-      next()
-    })
+    )
   }
 }
 
+Object.keys(parameters).forEach(key => {
+  Fingerprint[key] = parameters[key]
+})
+
+exports = module.exports = Fingerprint
