@@ -1,11 +1,10 @@
 {
   "name": "express-fingerprint",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Client fingerprint server implementation.",
   "main": "index.js",
   "scripts": {
-    "build": "babel src -d lib",
-    "lint:fix": "eslint src --fix"
+    "build": "babel src -d lib"
   },
   "repository": {
     "type": "git",
@@ -36,9 +35,10 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
-    "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
+    "babel-runtime": "^6.26.0",
     "express": "^4.16.3"
   }
 }
