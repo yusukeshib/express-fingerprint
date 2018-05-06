@@ -59,3 +59,32 @@ it('without option', function(done) {
     done()
   })
 })
+it('custom parameter', function(done) {
+
+  const isValid = struct({
+    hash: v => !!v.match(/^\w{32}$/),
+    components: {
+      param1: v => v === 'value1',
+      param2: v => v === 'value2'
+    }
+  })
+
+  const middleware = Middleware({
+    parameters: [
+      function(next) {
+        next(null,{
+          param1:'value1'
+        })
+      },
+      function(next) {
+        next(null,{
+          param2:'value2'
+        })
+      },
+    ]
+  })
+  middleware(req, res, function(err) {
+    isValid(req.fingerprint)
+    done()
+  })
+})
