@@ -1,10 +1,7 @@
-.babelrc
-.eslintrc
-.editorconfig
-src
-test
-.git
-.gitignore
-README.md
-webpack.config.js
-yarn.lock
+/.babelrc
+/.eslintrc
+/.editorconfig
+/src
+/test
+/README.md
+/yarn.lock

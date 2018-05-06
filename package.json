@@ -4,8 +4,10 @@
   "description": "Client fingerprint server implementation.",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "lint:fix": "eslint src --fix"
+    "build": "babel src -d lib",
+    "prepublishOnly": "npm test",
+    "pretest": "npm run build",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -27,25 +29,23 @@
   },
   "homepage": "https://github.com/yusukeshibata/express-fingerprint#readme",
   "dependencies": {
-    "async": "^2.1.5",
+    "async": "^2.6.0",
+    "geoip-lite": "^1.2.1",
     "babel-runtime": "^6.26.0",
-    "geoip-lite": "^1.1.9",
     "murmurhash3js": "^3.0.1",
     "traverse": "^0.6.6",
-    "useragent": "^2.1.12"
+    "useragent": "^2.3.0"
   },
   "devDependencies": {
-    "babel-core": "^6.22.1",
-    "babel-eslint": "^7.1.1",
-    "babel-loader": "^6.2.10",
-    "babel-plugin-transform-object-assign": "^6.22.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-es2015": "^6.22.0",
-    "babel-preset-stage-1": "^6.22.0",
-    "eslint": "^3.15.0",
-    "eslint-loader": "^1.6.1",
-    "express": "^4.14.1",
-    "webpack": "1.14.0",
-    "webpack-node-externals": "^1.5.4"
+    "babel-preset-env": "^1.6.1",
+    "babel-runtime": "^6.26.0",
+    "mocha": "^5.1.1",
+    "node-mocks-http": "^1.5.8",
+    "should": "^13.2.1",
+    "superstruct": "^0.5.4"
   }
 }
