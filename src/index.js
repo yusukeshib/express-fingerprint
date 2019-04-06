@@ -2,7 +2,7 @@ import murmurhash3js from 'murmurhash3js'
 import async from 'async'
 import parameters from './parameters'
 import traverse from 'traverse'
-const hash = murmurhash3js[process.arch]
+const hash = murmurhash3js.x64
 
 const Fingerprint = setting => {
   const config = {
