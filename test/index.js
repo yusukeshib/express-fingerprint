@@ -18,7 +18,7 @@ beforeEach(function(done) {
       'accept-encoding': 'gzip, deflate, br',
       'accept-language': 'en-US,en;q=0.9,ja-JP;q=0.8,ja;q=0.7'
     },
-    ip: '192.30.255.112'
+   ip: '67.63.47.106'
   })
   res = httpMocks.createResponse()
   done()
@@ -49,7 +49,9 @@ it('without option', function(done) {
         language: v => v === 'en-US,en;q=0.9,ja-JP;q=0.8,ja;q=0.7'
       },
       geoip: {
-        country: v => v === 'US'
+        country: v => v === 'US',
+        region: v => v === 'FL',
+        city: v => v === 'Homestead'
       }
     }
   })
