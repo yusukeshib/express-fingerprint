@@ -79,7 +79,7 @@ req.fingerprint object is like below.
 		},
 		"geoip": {
 			"country": "US",
-			"resion": "CA",
+			"region": "CA",
 			"city": "San Francisco"
 		},
 		"param1": "value1",
