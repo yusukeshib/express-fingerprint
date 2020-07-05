@@ -27,7 +27,7 @@ const Fingerprint = setting => {
             components[key] = obj[key]
           })
           callback(err)
-        })
+        },req,res)
       },
       err => {
         if(!err) {
