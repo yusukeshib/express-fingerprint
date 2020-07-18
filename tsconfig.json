@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "sourceMap": false,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "allowJs": true,
+    "target": "es5",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "declaration": true
+  }
+}
