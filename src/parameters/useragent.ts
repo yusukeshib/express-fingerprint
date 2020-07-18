@@ -1,7 +1,7 @@
 import ua from "useragent";
-import { Parameter } from "../types";
+import { FingerprintResultComponent, FingerprintParameter } from "../types";
 
-interface Useragent {
+interface Useragent extends FingerprintResultComponent {
   useragent: {
     browser: {
       family: string;
@@ -19,7 +19,7 @@ interface Useragent {
   };
 }
 
-export const useragent: Parameter<Useragent> = function (next) {
+export const useragent: FingerprintParameter<Useragent> = function (next) {
   const agent = ua.parse(this.req.headers["user-agent"]);
   next(null, {
     useragent: {

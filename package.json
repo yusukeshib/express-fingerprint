@@ -4,7 +4,7 @@
   "description": "Client fingerprint server implementation.",
   "main": "index.js",
   "scripts": {
-    "build": "webpack -d",
+    "build": "tsc -p .",
     "prepublishOnly": "npm test",
     "pretest": "npm run build",
     "test": "mocha"
@@ -22,7 +22,7 @@
     "identification",
     "node"
   ],
-  "author": "Yusuke Shibata <shibata@fata.io>",
+  "author": "Yusuke Shibata <yusukeshib@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/yusukeshibata/express-fingerprint/issues"
@@ -30,13 +30,14 @@
   "homepage": "https://github.com/yusukeshibata/express-fingerprint#readme",
   "dependencies": {
     "async": "^3.2.0",
-    "express": "^4.17.1",
     "geoip-lite": "^1.4.2",
     "murmurhash3js": "^3.0.1",
     "traverse": "^0.6.6",
     "useragent": "^2.3.0"
   },
-  "peerDependencies": {},
+  "peerDependencies": {
+    "express": "*"
+  },
   "devDependencies": {
     "@types/async": "^3.2.3",
     "@types/express": "^4.17.7",
@@ -47,15 +48,10 @@
     "eslint": "^7.3.1",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "fork-ts-checker-webpack-plugin": "^5.0.5",
     "mocha": "^8.0.1",
     "node-mocks-http": "^1.8.1",
     "should": "^13.2.3",
     "superstruct": "^0.6.1",
-    "ts-loader": "^7.0.5",
-    "typescript": "^3.9.5",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12",
-    "webpack-node-externals": "^2.5.0"
+    "typescript": "^3.9.5"
   }
 }

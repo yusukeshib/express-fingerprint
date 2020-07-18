@@ -1,13 +1,15 @@
-import { Parameter } from "../types";
+import { FingerprintResultComponent, FingerprintParameter } from "../types";
 
-export interface AcceptHeaders {
+export interface AcceptHeaders extends FingerprintResultComponent {
   acceptHeaders: {
     accept: string;
     language: string;
   };
 }
 
-export const acceptHeaders: Parameter<AcceptHeaders> = function (next) {
+export const acceptHeaders: FingerprintParameter<AcceptHeaders> = function (
+  next
+) {
   next(null, {
     acceptHeaders: {
       accept: this.req.headers["accept"],

@@ -1,28 +1,37 @@
-import { Request } from "express";
-
-export interface FingerprintResultComponent {
-  [key: string]: {
-    [key: string]: any;
-  };
+declare global {
+  namespace Express {
+    interface Request {
+      fingerprint?: fingerprint.FingerprintResult;
+    }
+  }
 }
 
-export interface FingerprintResult {
-  hash: string;
-  components?: FingerprintResultComponent[];
+declare namespace fingerprint {
+  interface FingerprintResultComponent {
+    [key: string]: {
+      [key: string]: any;
+    };
+  }
+
+  interface FingerprintResult {
+    hash: string;
+    components?: FingerprintResultComponent[];
+  }
+
+  // types
+  type FingerprintNext<T extends FingerprintResultComponent> = (
+    err: Error,
+    result: T
+  ) => void;
+
+  type FingerprintParameter<T extends FingerprintResultComponent> = (
+    next: FingerprintNext<T>
+  ) => void;
+
+  interface FingerprintConfig {
+    req: Express.Request;
+    parameters: FingerprintParameter<any>[];
+  }
 }
 
-// types
-export type Next<T extends FingerprintResultComponent> = (
-  err: Error,
-  result: T
-) => void;
-
-export type Parameter<T extends FingerprintResultComponent> = (
-  next: Next<T>
-) => void;
-
-export interface FingerprintConfig {
-  req: Request;
-  parameters: Parameter<any>[];
-}
-
+export = fingerprint;
