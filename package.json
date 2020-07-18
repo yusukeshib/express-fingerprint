@@ -3,11 +3,12 @@
   "version": "1.2.0",
   "description": "Client fingerprint server implementation.",
   "main": "lib/index.js",
+  "types": "./lib/types.d.ts",
   "scripts": {
     "build": "tsc -p .",
     "prepublishOnly": "npm test",
     "pretest": "npm run build",
-    "test": "mocha"
+    "test": "mocha -r ts-node/register test/**/*.ts"
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,7 @@
     "@types/async": "^3.2.3",
     "@types/express": "^4.17.7",
     "@types/geoip-lite": "^1.1.31",
+    "@types/mocha": "^8.0.0",
     "@types/murmurhash3js": "^3.0.2",
     "@types/traverse": "^0.6.32",
     "@types/useragent": "^2.1.1",
@@ -52,6 +54,7 @@
     "node-mocks-http": "^1.8.1",
     "should": "^13.2.3",
     "superstruct": "^0.6.1",
+    "ts-node": "^8.10.2",
     "typescript": "^3.9.5"
   }
 }

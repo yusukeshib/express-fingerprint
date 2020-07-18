@@ -9,7 +9,7 @@ import {
   FingerprintResult,
 } from "./types";
 
-const Fingerprint = (setting: FingerprintConfig) => {
+const Fingerprint = (setting?: FingerprintConfig) => {
   const config: FingerprintConfig = {
     parameters: [
       parameters.useragent,
@@ -19,6 +19,10 @@ const Fingerprint = (setting: FingerprintConfig) => {
     ...setting,
   };
 
+  for (let i = 0; i < config.parameters.length; i++) {
+    config.parameters[i] = config.parameters[i].bind(config);
+  }
+
   return (req: Request, res: Response, next: NextFunction) => {
     let components: any = {};
     config.req = req;
@@ -27,7 +31,7 @@ const Fingerprint = (setting: FingerprintConfig) => {
       config.parameters,
       1,
       (parameter, callback) => {
-        parameter.bind(config)(
+        parameter(
           (err: Error, obj: FingerprintResultComponent) => {
             for (const key in obj) {
               components[key] = obj[key];
@@ -54,8 +58,8 @@ const Fingerprint = (setting: FingerprintConfig) => {
   };
 };
 
-// for (const key in parameters) {
-//   Fingerprint[key] = parameters[key];
-// }
+for (const key in parameters) {
+  (Fingerprint as any)[key] = (parameters as any)[key];
+}
 
 export = Fingerprint;

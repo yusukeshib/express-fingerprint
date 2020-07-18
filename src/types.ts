@@ -7,29 +7,31 @@ declare global {
 }
 
 declare namespace fingerprint {
-  interface FingerprintResultComponent {
-    [key: string]: {
-      [key: string]: any;
-    };
+  export interface FingerprintResultComponent {
+    [key: string]: any;
   }
 
-  interface FingerprintResult {
+  export interface FingerprintResult {
     hash: string;
     components?: FingerprintResultComponent[];
   }
 
   // types
-  type FingerprintNext<T extends FingerprintResultComponent> = (
+  export type FingerprintNext<T extends FingerprintResultComponent> = (
     err: Error,
     result: T
   ) => void;
 
-  type FingerprintParameter<T extends FingerprintResultComponent> = (
-    next: FingerprintNext<T>
+  export type FingerprintParameter<
+    T extends FingerprintResultComponent = any
+  > = (
+    next: FingerprintNext<T>,
+    req?: Express.Request,
+    res?: Express.Response
   ) => void;
 
-  interface FingerprintConfig {
-    req: Express.Request;
+  export interface FingerprintConfig {
+    req?: Express.Request;
     parameters: FingerprintParameter<any>[];
   }
 }
