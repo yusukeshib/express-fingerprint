@@ -8,6 +8,7 @@ import {
   FingerprintConfig,
   FingerprintResult,
 } from "./types";
+export * from "./types";
 
 const Fingerprint = (setting?: FingerprintConfig) => {
   const config: FingerprintConfig = {
@@ -62,4 +63,4 @@ for (const key in parameters) {
   (Fingerprint as any)[key] = (parameters as any)[key];
 }
 
-export = Fingerprint;
+export default Fingerprint;

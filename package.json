@@ -1,9 +1,8 @@
 {
   "name": "express-fingerprint",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Client fingerprint server implementation.",
   "main": "lib/index.js",
-  "types": "./lib/types.d.ts",
   "scripts": {
     "build": "tsc -p .",
     "prepublishOnly": "npm test",
