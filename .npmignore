@@ -3,5 +3,6 @@
 /.editorconfig
 /src
 /test
-/README.md
-/yarn.lock
+/tsconfig.json
+/.github
+/webpack.config.js
