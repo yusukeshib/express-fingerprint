@@ -64,3 +64,4 @@ for (const key in parameters) {
 }
 
 export default Fingerprint;
+module.exports = Fingerprint;
