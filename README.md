@@ -31,17 +31,17 @@ app.use(Fingerprint({
 		Fingerprint.acceptHeaders,
 		Fingerprint.geoip,
 
-		// Additional parameters
-		function(next) {
+		// Additional parameter template
+		function(next, req, res) {
 			// ...do something...
 			next(null,{
 			'param1':'value1'
 			})
 		},
-		function(next) {
-			// ...do something...
+    // use this in order to avoid duplicate hash when geoip is not available
+		function(next, req, res) {
 			next(null,{
-			'param2':'value2'
+			ip: req.ip
 			})
 		},
 	]
