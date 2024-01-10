@@ -9,7 +9,7 @@ export interface GeoIp extends FingerprintResultComponent {
 
 export const geoip: FingerprintParameter<GeoIp> = function (next) {
   const ip =
-    (this.req.headers["x-forwarded-for"] || "").split(",").pop() ||
+    (this.req.headers["x-forwarded-for"] || "").split(",")[0] ||
     this.req.connection?.remoteAddress ||
     this.req.socket?.remoteAddress ||
     this.req.connection?.socket?.remoteAddress ||
